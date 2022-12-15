@@ -29,6 +29,6 @@
       automerge: true,
     },
   ],
-  baseBranches: ["renovate/test"], // 更新対象のブランチ TODO:運用乗せる際にDevelopmentに修正
+  baseBranches: ["main"], // 更新対象のブランチ TODO:運用乗せる際にDevelopmentに修正
 }
 
