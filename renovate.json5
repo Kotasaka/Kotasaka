@@ -19,13 +19,13 @@
     {
       matchDepTypes: ["dependencies"], // dependencies のみの MR を作成
       groupName: "dependencies",
-      matchUpdateTypes: ["minor", "patch"], // minor, patch の MR は自動マージ
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"], // minor, patch の MR は自動マージ
       automerge: true,
     },
     {
       matchDepTypes: ["devDependencies"], // devDependencies のみの MR を作成
       groupName: "devDependencies",
-      matchUpdateTypes: ["minor", "patch"], // minor, patch の MR は自動マージ
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"], // minor, patch の MR は自動マージ
       automerge: true,
     },
   ],
