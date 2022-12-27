@@ -1,0 +1,34 @@
+{
+  extends: ["config:base"], // 公式の推奨設定を継承
+  timezone: "Asia/Tokyo", // タイムゾーンの設定
+ // schedule: ["after 9am every monday"], // renovateの更新のタイミング
+  //automergeSchedule: ["after 9am every monday"], // MRの作成と自動マージのタイミング
+  enabledManagers: ["npm"], // パッケージマネージャの名称
+  lockFileMaintenance: {
+    enabled: true, // package-lock.json
+  },
+  rangeStrategy: "pin", // バージョンを固定
+  major: {
+    automerge: false, // majorは自動マージしない
+   // schedule: ["after 9am every other monday"],
+  },
+  packageRules: [
+    {
+      matchPackagePatterns: ["*"], // 全パッケージが対象
+    },
+    {
+      matchDepTypes: ["dependencies"], // dependencies のみの MR を作成
+      groupName: "dependencies",
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"], // minor, patch の MR は自動マージ
+      automerge: true,
+    },
+    {
+      matchDepTypes: ["devDependencies"], // devDependencies のみの MR を作成
+      groupName: "devDependencies",
+      matchUpdateTypes: ["minor", "patch", "pin", "digest"], // minor, patch の MR は自動マージ
+      automerge: true,
+    },
+  ],
+  baseBranches: ["saito"], // 更新対象のブランチ TODO:運用乗せる際にDevelopmentに修正
+}
+
